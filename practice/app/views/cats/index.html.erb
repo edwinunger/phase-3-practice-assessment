@@ -1,0 +1,42 @@
+<ul id="this_one">
+  <% @cats.each do |cat| %>
+  <li><a href="/cats/<%=cat.id%>"><%= cat.name %></a>
+    <ul><li><%= cat.breed %></li>
+        <li>Cute? <%= cat.cute %></li>
+    </ul>
+  </li>
+
+<% end %>
+</ul>
+
+<script id="cat-new" type="text/x-handlebars-template">
+  <li><a href="/cats/{{id}}">{{name}}</a>
+    <ul>
+      <li>
+        {{breed}}
+      </li>
+      <li>
+        Cute? {{cute}}
+      </li>
+    </ul>
+  </li>
+</script>
+
+
+
+<%= form_for @cat do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <%= f.label :breed %>
+  <%= f.text_field :breed %>
+  <br>
+  <br>
+  <%= f.label :cute  %>
+  <%= f.select :cute, [true, false] %>
+  <br>
+  <br>
+  <%= f.submit %>
+<% end %>
+

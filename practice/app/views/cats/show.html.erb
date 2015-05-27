@@ -1,0 +1,8 @@
+
+<ul><%=@cat.name %>
+  <li><%= @cat.breed %></li>
+  <li><%= @cat.cute %></li>
+</ul>
+
+<%= link_to 'Edit Cat', edit_cat_path %>
+<%= link_to 'Delete Cat', cat_path, method: :delete %>
